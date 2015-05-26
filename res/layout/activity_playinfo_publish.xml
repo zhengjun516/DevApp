@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:gravity="center_horizontal"
+    >
+    <include layout="@layout/titlebar"/>
+<TableLayout 
+    android:id="@+id/mEventForm"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    <TableRow 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_10dp"
+        android:layout_marginLeft="@dimen/size_30dp"
+        >
+        <TextView 
+            android:id="@+id/mEventTextTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/size_24dp"
+            android:text="@string/event_text_title"
+            android:textSize="@dimen/text_size_18sp"
+            />
+        <EditText
+            android:id="@+id/mEventTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/event_hint_title"
+            android:background="@null"
+            />
+        
+    </TableRow>
+    <TableRow 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_10dp"
+        android:layout_marginLeft="@dimen/size_30dp"
+        >
+        <TextView 
+            android:id="@+id/mEventTextTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/size_24dp"
+            android:text="@string/event_text_time"
+            android:textSize="@dimen/text_size_18sp"
+            />
+        <EditText
+            android:id="@+id/mEventBeginTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            />
+    </TableRow>
+    <TableRow 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/size_30dp"
+        android:layout_marginTop="@dimen/size_10dp"
+        >
+        <TextView 
+            android:id="@+id/mEventTextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/size_24dp"
+            android:text="@string/event_text_content"
+            android:textSize="@dimen/text_size_18sp"
+            
+            />
+        <EditText
+            android:id="@+id/mEventContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            />
+        
+    </TableRow>
+</TableLayout>
+
+<TextView 
+    android:id="@+id/mPublishBtn"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/size_48dp"
+    android:paddingLeft="@dimen/size_18dp"
+    android:paddingRight="@dimen/size_18dp"
+    android:gravity="center"
+    android:text="@string/publish_text"
+    android:textSize="@dimen/text_size_18sp"
+    android:background="@drawable/btn_background_selector"
+    />
+</LinearLayout>

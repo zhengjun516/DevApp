@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.devapp"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    
+    <instrumentation android:name="android.test.InstrumentationTestRunner"
+        android:targetPackage="com.jieban" />
+    
+    <application
+        android:name="com.devapp.ClientApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/MyApp.Theme.Light.NoTitleBar" >
+         <uses-library android:name="android.test.runner" />
+        <meta-data android:name="AA_DB_NAME" android:value="jieban.db" />
+        <meta-data android:name="AA_DB_VERSION" android:value="5" />
+         
+         <activity
+            android:name="com.devapp.activity.common.LoginActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|locale"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name="com.devapp.activity.common.RegisterActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|locale"
+            android:label="@string/app_name" >
+        </activity>
+         <activity
+            android:name=".activity.common.ChooseSchoolActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|locale"
+            android:label="@string/app_name" >
+        </activity>
+         
+        <!-- 底部tabbar导航栏模式 -->
+        <activity
+            android:name=".activity.tab.MainTabActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|locale"
+            android:label="@string/app_name" >
+            <!-- <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter> -->
+        </activity>
+        
+        <!-- 左侧活动导航栏模式 -->
+        <!-- <activity
+            android:name="com.jieban.activity.slidemenu.SlideMenuActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> -->
+        
+        <activity
+            android:name="com.jieban.activity.shop.ShopListActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|locale"
+            android:label="@string/app_name" android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.jieban.activity.shop.ShopDetailActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|locale"
+            android:label="@string/app_name" android:screenOrientation="portrait">
+        </activity>
+        
+        <activity
+            android:name=".activity.discovery.ReadingActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|locale"
+            android:label="@string/app_name" android:screenOrientation="portrait">
+        </activity>
+      
+    </application>
+
+</manifest>

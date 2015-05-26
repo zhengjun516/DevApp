@@ -1,0 +1,7 @@
+#
+.settings/
+classes/
+bin/
+gen/
+*.bak
+*.log

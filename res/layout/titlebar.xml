@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mTitleBar"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/size_48dp"
+    android:gravity="center_vertical"
+    android:background="@color/titlebar_bg_color2">
+
+    <RelativeLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:layout_alignParentLeft="true"
+        >
+     <TextView
+        android:id="@+id/mLeftBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="8dp"
+        android:background="@drawable/ic_back"
+        android:scaleType="center"/>
+   </RelativeLayout>
+    
+    <LinearLayout 
+        android:id="@+id/mTitleTextContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/size_48dp"
+        android:gravity="center"
+        android:layout_centerInParent="true">
+        
+        <TextView 
+            android:id="@+id/mTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:singleLine="true"
+            android:lines="1"
+            android:text="标题"
+            android:textSize="@dimen/text_size_18sp"
+            android:textColor="@color/white"
+            />
+    </LinearLayout>
+    
+    <RelativeLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:paddingRight="@dimen/size_18dp"
+        >
+     <TextView
+        android:id="@+id/mRightBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:background="@drawable/ic_add_favorite"
+        android:scaleType="center" 
+        android:visibility="gone"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_16sp"
+        />
+   </RelativeLayout>
+</RelativeLayout>

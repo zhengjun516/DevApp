@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    >
+    
+    <include android:id="@+id/mTitleBar" layout="@layout/titlebar"/>
+    
+    <TextView 
+        android:id="@+id/mPostMessageContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mTitleBar"
+        android:gravity="center"
+        android:text="xxxxxxx"
+        />
+
+    <ListView 
+        android:id="@+id/mCommentList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/mPostMessageContent"
+        ></ListView>
+    
+    <include layout="@layout/comment_box"
+        android:layout_alignParentBottom="true"
+        />
+</RelativeLayout>

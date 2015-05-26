@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- <color name="green">#FF55BB22</color> -->
+    <color name="white">#FFFFFFFF</color>
+    <color name="dark_gray">#404040</color>
+    <color name="theme_fake_white">#FFFAFAFA</color>
+    <color name="mainpage_background_color">#fff0f0f0</color>
+    <color name="orange">#ffffdc7e</color>
+    <color name="grey">#ffd3d3d3</color>
+    <color name="green">#ff8dd304</color>
+    <color name="blue">#ff82e0ff</color>
+    <color name="yellow">#fffffbae</color>
+    <color name="red">#fff10800</color>
+    <color name="list_item_pressed">#1A000000</color>
+    
+    
+    <color name="transparent">#00000000</color>
+    
+   <color name="title_color">#333333</color>
+   
+   
+   <color name="titlebar_bg_color">#ff00a0da</color>
+   <color name="titlebar_bg_color2">#ff2bbab3</color>
+   
+   <color name="adapteritem_name_color">#ff1d96ff</color>
+</resources>
