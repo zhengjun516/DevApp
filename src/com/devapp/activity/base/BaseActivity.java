@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.devapp.R;
 
-public class BaseActivity extends FragmentActivity{
+public abstract class BaseActivity extends FragmentActivity{
 	public static final String EXTRA_OPEN_ANIM_IN = "extra_open_anim_in";
 	public static final String EXTRA_OPEN_ANIM_OUT = "extra_open_anim_out";
 	public static final String EXTRA_CLOSE_ANIM_IN = "extra_close_anim_in";
@@ -37,7 +37,6 @@ public class BaseActivity extends FragmentActivity{
 			overridePendingTransition(openAnimInRes, openAnimOutRes);
 		}
 	}
-
 
 	@Override
 	protected void onResume() {

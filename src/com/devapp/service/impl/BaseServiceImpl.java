@@ -20,9 +20,6 @@ import com.devapp.service.IBaseService;
 public class BaseServiceImpl implements IBaseService{
 	
 	protected String testHost = "";
-	
-	protected String host = "http://182.92.37.141:8080/jieban/";
-	
 	protected static RequestQueue mVolleyQueue;
 	protected Context mContext;
 	protected Handler handler;

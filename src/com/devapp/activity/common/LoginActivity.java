@@ -8,7 +8,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.devapp.R;
-import com.devapp.activity.BookActivity;
 import com.devapp.activity.base.BaseActivity;
 import com.devapp.domain.User;
 import com.devapp.http.ErrorInfo;
@@ -26,7 +25,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 	
 	private Button mLoginBtn;
 	
-	private Button mRegiButton;
+	private Button mRegisterBtn;
 	
 	private IUserService userService;
 	
@@ -35,8 +34,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 		
-		mLoginBtn.setOnClickListener(this);
-		mRegiButton.setOnClickListener(this);
+		
 		
 		//所有的service都不需要自己new，只需要通过工厂模式获取即可
 		//通过id的方式获取服务
@@ -45,6 +43,19 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		userService = ServiceFactory.getUserService(this);
 	}
 
+	protected void initView() {
+		mPhoneNumber = (EditText) findViewById(R.id.mPhoneNumber);
+		mPassword = (EditText) findViewById(R.id.mPassword);
+		mLoginBtn = (Button) findViewById(R.id.mLoginBtn);
+		mRegisterBtn = (Button) findViewById(R.id.mRegisterBtn);
+	}
+	
+	protected void setOnClickListener(){
+		mLoginBtn.setOnClickListener(this);
+		mRegisterBtn.setOnClickListener(this);
+	}
+
+	
 	@Override
 	public void onClick(View v) {
 		 switch(v.getId()){
@@ -68,7 +79,6 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 			public void onSuccess(int status, User user,ErrorInfo errorInfo) {
 				if(status == ErrorInfo.SUCCESS){
 					//逻辑正确
-					ActivityUtils.startActivity(LoginActivity.this, BookActivity.class);
 					Toast.makeText(LoginActivity.this,"登陆成功", Toast.LENGTH_SHORT).show();
 				}else{
 					//处理错误

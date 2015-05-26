@@ -10,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.devapp.R;
-import com.devapp.activity.BookActivity;
 import com.devapp.activity.base.BaseActivity;
 import com.devapp.domain.User;
 import com.devapp.http.ErrorInfo;
@@ -39,14 +38,25 @@ public class RegisterActivity extends BaseActivity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_register);
-		
-		mRegisterBtn.setOnClickListener(this);
-		mSchool.setOnClickListener(this);
+		initView();
+		setOnClickListener();
 		
 		//userService = (IUserService) ServiceFactory.getService(IBaseService.USER_SERVICE, this);
 		userService = ServiceFactory.getUserService(this);
 		
 		
+	}
+
+	protected void initView() {
+		mPhoneNumber = (EditText) findViewById(R.id.mPhoneNumber);
+		mPassword = (EditText) findViewById(R.id.mPassword);
+		mRegisterBtn = (Button) findViewById(R.id.mRegisterBtn);
+		mSchool = (TextView) findViewById(R.id.mSchool);
+	}
+
+	protected void setOnClickListener() {
+		mRegisterBtn.setOnClickListener(this);
+		mSchool.setOnClickListener(this);
 	}
 
 	@Override
@@ -74,7 +84,6 @@ public class RegisterActivity extends BaseActivity implements OnClickListener {
 			public void onSuccess(int status, User t, ErrorInfo errorInfo) {
 				if(status == ErrorInfo.SUCCESS){
 					//逻辑正确
-					ActivityUtils.startActivity(RegisterActivity.this, BookActivity.class);
 				}else{
 					//处理错误
 					Toast.makeText(RegisterActivity.this,errorInfo.code+":"+errorInfo.msg, Toast.LENGTH_SHORT).show();

@@ -17,6 +17,7 @@ import com.android.volley.Response.Listener;
 import com.android.volley.VolleyError;
 import com.devapp.domain.Post;
 import com.devapp.domain.User;
+import com.devapp.http.API;
 import com.devapp.http.ResponseHandler;
 import com.devapp.http.SimpleStringRequest;
 import com.devapp.service.IMessageService;
@@ -45,7 +46,7 @@ public class MessageServiceImpl extends BaseServiceImpl implements IMessageServi
 		post.setUserId(user.id);
 		post.setSchoolNumber(user.schoolId);
 		
-		String url = host+"v1/message/create.do";
+		String url = API.HOST_CURRENT+"v1/message/create.do";
 		Uri.Builder builder = Uri.parse(url).buildUpon();
 		String messageStr = JSON.toJSONString(post);
 		
