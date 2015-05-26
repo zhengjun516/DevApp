@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.jieban.activity.tab.MTabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mTabHost"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:addStatesFromChildren="true"
+    android:alwaysDrawnWithCache="true" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FAFAFA"
+        android:orientation="vertical" >
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0" />
+
+        <FrameLayout
+            android:id="@+android:id/realtabcontent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <RelativeLayout
+            android:id="@+id/mTabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+        </RelativeLayout>
+    </LinearLayout>
+</com.jieban.activity.tab.MTabHost>
