@@ -34,23 +34,6 @@ import com.devapp.widget.AbstractAdapterOnClickListenerAdapterView;
 	
 public class Tab1Fragment extends BaseFragment {
 	
-	private ListView mMessageList;
-	private Handler handler = new Handler(){
-		@Override
-		public void handleMessage(Message msg) {
-			switch(msg.what){
-			case 1:
-				List<Post> postMessages = (List<Post>) msg.obj;
-				if(!MyObjectUtils.isEmptyObject(postMessages) && !postMessages.isEmpty()){
-				}
-				break;
-			case 2:
-				mParentActivity.toast("你点了赞哦");
-			}
-		}
-	};
-	
-	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

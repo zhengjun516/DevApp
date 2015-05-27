@@ -16,6 +16,17 @@
 
 <resources>
 
+    <!-- 通用配置 -->
+    
+    <dimen name="text_size_small">10sp</dimen>
+    <dimen name="text_size_middle">10sp</dimen>
+    <dimen name="text_size_big">10sp</dimen>
+    
+    <dimen name="size_18dp">18dp</dimen>
+    <dimen name="size_24dp">24dp</dimen>
+    <dimen name="size_30dp">30dp</dimen>
+    
+    
     <dimen name="size_10dp">10dp</dimen>
     <dimen name="size_18dp">18dp</dimen>
     <dimen name="size_24dp">24dp</dimen>
