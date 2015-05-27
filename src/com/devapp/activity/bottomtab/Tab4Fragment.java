@@ -20,12 +20,6 @@ import android.widget.ListView;
  * 
  */
 public class Tab4Fragment extends BaseFragment {
-
-	/*@InjectView(R.id.mScrollView)
-	public ElasticScrollView mScrollView;*/
-
-	/*@InjectView(R.id.place_bg)
-	public ImageView place_bg;*/
 	
 	private ListView mListView;
 

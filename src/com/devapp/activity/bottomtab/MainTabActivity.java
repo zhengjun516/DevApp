@@ -46,7 +46,9 @@ public class MainTabActivity extends BaseActivity {
 	}
 
 	private void initTab() {
-		
+		mTabHost = (MTabHost) findViewById(R.id.mTabHost);
+		mTabLayout = (RelativeLayout) findViewById(R.id.mTabLayout);
+
 		mTabHost.setup();
 		mTabManager = new TabManager(this, mTabHost, R.id.realtabcontent);
 		

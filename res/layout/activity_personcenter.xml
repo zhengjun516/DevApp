@@ -13,12 +13,6 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="vertical" >
-
-        <com.jieban.widget.xlistview.XListView
-            android:id="@+id/mXListView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-        </com.jieban.widget.xlistview.XListView>
     </LinearLayout>
 
 </LinearLayout>
