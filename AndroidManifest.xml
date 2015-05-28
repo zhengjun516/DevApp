@@ -58,6 +58,14 @@
             android:label="@string/app_name" >
         </activity>
         
+        
+        <activity
+            android:name="com.devapp.fragment.FragmentSampleActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|locale"
+            android:label="@string/app_name" >
+        </activity>
+        
+        
         <!-- 左侧活动导航栏模式 -->
         <!-- <activity
             android:name="com.jieban.activity.slidemenu.SlideMenuActivity"

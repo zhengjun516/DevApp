@@ -3,6 +3,7 @@ package com.devapp.utils;
 import java.io.Serializable;
 import java.util.Map;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -10,12 +11,12 @@ import com.devapp.activity.base.BaseActivity;
 
 public class ActivityUtils {
 	
-	public static void startActivity(BaseActivity activity,Class clazz){
+	public static void startActivity(Activity activity,Class clazz){
 		Intent intent = new Intent(activity,clazz);
 		activity.startActivity(intent);
 	}
 	
-	public static void startActivity(BaseActivity activity,Class clazz,Map<String,Object> params){
+	public static void startActivity(Activity activity,Class clazz,Map<String,Object> params){
 		Intent intent = new Intent(activity,clazz);
 		if(!MyObjectUtils.isEmptyObject(params)){
 			for (String key : params.keySet()) {

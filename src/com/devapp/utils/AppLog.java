@@ -19,7 +19,7 @@ package com.devapp.utils;
 
 import android.util.Log;
 
-public class MyLog {
+public class AppLog {
 	private static final boolean DEBUG = true;
 
 	public static void d(String tag, String msg) {
