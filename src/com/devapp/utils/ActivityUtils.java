@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.devapp.activity.base.BaseActivity;
+import com.devapp.domain.IntentParam;
 
 public class ActivityUtils {
 	
@@ -31,6 +32,14 @@ public class ActivityUtils {
 				}
 
 	        }
+		}
+		activity.startActivity(intent);
+	}
+	
+	public static void startActivity(Activity activity,Class clazz,IntentParam intentParams){
+		Intent intent = new Intent(activity,clazz);
+		if(!MyObjectUtils.isEmptyObject(intentParams)){
+			IntentParamManager.put(IntentParam.KEY, intentParams);
 		}
 		activity.startActivity(intent);
 	}

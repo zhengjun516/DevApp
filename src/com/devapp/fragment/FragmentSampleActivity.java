@@ -33,14 +33,35 @@ public class FragmentSampleActivity extends BaseActivity {
 		
 	     setContentView(R.layout.activity_fragment);
 		
-		//mFragmentContainer = (FrameLayout) findViewById(R.id.mFragmentContainer);
 		manager = getSupportFragmentManager();
 		
 		fragment1 = new FragmentDemo1();
 		fragment2 = new FragmentDemo2();
 		
+	}
+	
+    public void find(){
+		
+	}
+	
+    public void remove(){
+    	manager.beginTransaction().remove(fragment1);
+		
+	}
+    public void add(){
+		
+	}
+    
+    public void hide(){
+		
+	}
+    
+    public void show(){
+    	
+    }
+	
+	public void replace(){
 		manager.beginTransaction().replace(R.id.mFragmentContainer, fragment1).commit();
 	}
-
 	
 }

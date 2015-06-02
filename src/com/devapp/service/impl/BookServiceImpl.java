@@ -13,11 +13,11 @@ import com.android.volley.VolleyError;
 import com.devapp.domain.Book;
 import com.devapp.http.ErrorInfo;
 import com.devapp.http.ResponseHandler;
-import com.devapp.service.IBookService;
+import com.devapp.service.BookService;
 
 
 
-public class BookServiceImpl extends BaseServiceImpl implements IBookService{
+public class BookServiceImpl extends BaseServiceImpl implements BookService{
 	
 	public BookServiceImpl(Context context) {
 		super(context);

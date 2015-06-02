@@ -14,7 +14,7 @@ import com.devapp.activity.base.BaseActivity;
 import com.devapp.domain.User;
 import com.devapp.http.ErrorInfo;
 import com.devapp.http.ResponseHandler;
-import com.devapp.service.IUserService;
+import com.devapp.service.UserService;
 import com.devapp.utils.ActivityUtils;
 import com.devapp.utils.MyObjectUtils;
 import com.devapp.utils.ServiceFactory;
@@ -32,7 +32,7 @@ public class RegisterActivity extends BaseActivity implements OnClickListener {
 	
 	private TextView mSchool;
 	
-	private IUserService userService;
+	private UserService userService;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

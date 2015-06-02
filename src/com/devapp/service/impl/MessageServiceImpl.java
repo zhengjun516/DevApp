@@ -20,11 +20,11 @@ import com.devapp.domain.User;
 import com.devapp.http.API;
 import com.devapp.http.ResponseHandler;
 import com.devapp.http.SimpleStringRequest;
-import com.devapp.service.IMessageService;
+import com.devapp.service.MessageService;
 import com.devapp.utils.CacheUtils;
 import com.devapp.utils.MyObjectUtils;
 
-public class MessageServiceImpl extends BaseServiceImpl implements IMessageService{
+public class MessageServiceImpl extends BaseServiceImpl implements MessageService{
 
 	public MessageServiceImpl(Context context) {
 		super(context);
@@ -34,42 +34,7 @@ public class MessageServiceImpl extends BaseServiceImpl implements IMessageServi
 	 * 创建信息
 	 */
 	public void createMessage(Post post,final ResponseHandler<Integer , Exception> responseHandler){
-		if(MyObjectUtils.isEmptyObject(post)){
-			return;
-		}
 		
-		User user = CacheUtils.user;
-		if(MyObjectUtils.isEmptyObject(user)){
-              return;
-		}
-		
-		post.setUserId(user.id);
-		post.setSchoolNumber(user.schoolId);
-		
-		String url = API.HOST_CURRENT+"v1/message/create.do";
-		Uri.Builder builder = Uri.parse(url).buildUpon();
-		String messageStr = JSON.toJSONString(post);
-		
-		Map<String, String> params = new HashMap<String, String>();
-		params.put("message", messageStr);
-		
-	    SimpleStringRequest simpleStringRequest = new SimpleStringRequest(Request.Method.POST, builder.toString(), params, new Listener<String>() {
-			@Override
-			public void onResponse(String response) {
-				Message msg = handler.obtainMessage();
-				msg.what = 1;
-				handler.sendMessage(msg);
-			}
-		}, new ErrorListener() {
-			@Override
-			public void onErrorResponse(VolleyError error) {
-				
-			}
-		});
-		simpleStringRequest.setRetryPolicy(new DefaultRetryPolicy(5000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-		simpleStringRequest.setTag(this.getClass().getSimpleName());	
-		simpleStringRequest.setPriority(Priority.NORMAL);
-		mVolleyQueue.add(simpleStringRequest);
 	}
 	
 	public void getPostMessages(Map<String,String> params,final ResponseHandler<List<Post> , Exception> responseHandler){

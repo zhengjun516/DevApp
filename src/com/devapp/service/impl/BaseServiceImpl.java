@@ -15,28 +15,26 @@ import com.android.volley.Response.Listener;
 import com.android.volley.toolbox.Volley;
 import com.devapp.http.MyJsonRequest;
 import com.devapp.http.SimpleStringRequest;
-import com.devapp.service.IBaseService;
+import com.devapp.service.BaseService;
 
-public class BaseServiceImpl implements IBaseService{
+public class BaseServiceImpl implements BaseService{
 	
 	protected String testHost = "";
 	protected static RequestQueue mVolleyQueue;
-	protected Context mContext;
-	protected Handler handler;
+	protected static Context mContext;
 	
-	//protected Handler handler;
-	
-	public BaseServiceImpl(Context context) {
-	    this(context,null);
+	public static void init(Context context){
+		mContext = context;
+		if(mVolleyQueue == null){
+			mVolleyQueue = Volley.newRequestQueue(mContext);
+		}
 	}
 	
-	public BaseServiceImpl(Context context,Handler handler) {
-		super();
-		this.mContext = context;
-		this.handler = handler;
-		if(mVolleyQueue == null){
-			mVolleyQueue = Volley.newRequestQueue(this.mContext);
-		}
+	public BaseServiceImpl() {
+	}
+
+	public BaseServiceImpl(Context context) {
+		
 	}
 	
 	protected void request(int method, String url, JSONObject jsonRequest, Listener<JSONObject> listener, ErrorListener errorListener){

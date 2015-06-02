@@ -6,7 +6,7 @@ import java.util.Map;
 import com.devapp.domain.Post;
 import com.devapp.http.ResponseHandler;
 
-public interface IMessageService{
+public interface MessageService{
 
 	/**
 	 * 创建信息

@@ -15,9 +15,9 @@ import com.devapp.domain.User;
 import com.devapp.http.API;
 import com.devapp.http.ErrorInfo;
 import com.devapp.http.ResponseHandler;
-import com.devapp.service.IUserService;
+import com.devapp.service.UserService;
 
-public class UserServiceImpl extends BaseServiceImpl implements IUserService {
+public class UserServiceImpl extends BaseServiceImpl implements UserService {
 	
 	public UserServiceImpl(Context context) {
 		super(context);

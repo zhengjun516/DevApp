@@ -5,7 +5,7 @@ import java.util.List;
 import com.devapp.domain.Book;
 import com.devapp.http.ResponseHandler;
 
-public interface IBookService{
+public interface BookService{
 	
 	/**
 	 * https://api.douban.com/v2/book/:id

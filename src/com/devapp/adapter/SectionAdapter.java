@@ -5,13 +5,16 @@ import java.util.List;
 import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.devapp.R;
 import com.devapp.adapter.base.MBaseAdapter;
+import com.devapp.domain.Chapter;
+import com.devapp.domain.Section;
 
-public class ItemsAdapter extends MBaseAdapter {
+public class SectionAdapter extends MBaseAdapter {
 
-	public ItemsAdapter(Activity context, List<Object> datas) {
+	public SectionAdapter(Activity context, List<Section> datas) {
 		super(context, datas);
 	}
 
@@ -20,6 +23,10 @@ public class ItemsAdapter extends MBaseAdapter {
 		if(convertView == null){
 			convertView = inflater.inflate(R.layout.discovery_adapter_item, null);
 		}
+		Section section = (Section) getItem(position);
+		
+		TextView itemName = (TextView) convertView.findViewById(R.id.mItemName);
+		itemName.setText(section.name);
 		return convertView;
 	}
 }
