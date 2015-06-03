@@ -1,4 +1,4 @@
-package com.devapp.activity.common;
+package com.devapp.activity.course;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -12,6 +12,7 @@ import com.devapp.fragment.SectionFragment;
 public class ClassActivity extends BaseActivity {
 	
 	private SectionFragment sectionFragment;
+	
 	private FragmentManager manager;
 	private FragmentTransaction transaction;
 	private IntentParam intentParam;

@@ -16,7 +16,7 @@ import android.widget.ListView;
 import com.devapp.R;
 import com.devapp.activity.base.BaseActivity;
 import com.devapp.activity.base.BaseFragment;
-import com.devapp.activity.common.ClassActivity;
+import com.devapp.activity.course.ClassActivity;
 import com.devapp.adapter.ChapterAdapter;
 import com.devapp.domain.Chapter;
 import com.devapp.domain.IntentParam;
