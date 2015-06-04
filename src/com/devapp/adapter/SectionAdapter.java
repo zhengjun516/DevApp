@@ -21,7 +21,7 @@ public class SectionAdapter extends MBaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		if(convertView == null){
-			convertView = inflater.inflate(R.layout.discovery_adapter_item, null);
+			convertView = mInflater.inflate(R.layout.discovery_adapter_item, null);
 		}
 		Section section = (Section) getItem(position);
 		

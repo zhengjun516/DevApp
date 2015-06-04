@@ -15,9 +15,9 @@ import com.devapp.widget.OnClickListenerAdapterView;
 
 public abstract class MBaseAdapter<T> extends BaseAdapter{
 	
-	protected Activity context;
+	protected Activity mContext;
 	protected List<T> datas = new ArrayList<T>();
-	protected LayoutInflater inflater;
+	protected LayoutInflater mInflater;
 	
 	/**
 	 * 通用点击事件回调类
@@ -26,12 +26,12 @@ public abstract class MBaseAdapter<T> extends BaseAdapter{
 	
 	public MBaseAdapter(Activity context, List<T> datas) {
 		super();
-		this.context = context;
+		this.mContext = context;
 		if(!MyObjectUtils.isEmptyObject(datas)){
 			this.datas = datas;
 		}
 		
-		inflater = LayoutInflater.from(context);
+		mInflater = LayoutInflater.from(context);
 	}
 
 	@Override

@@ -1,9 +1,14 @@
 package com.devapp.activity.bottomtab;
 
+import java.io.File;
+import java.net.MalformedURLException;
+import java.util.ArrayList;
 import java.util.HashMap;
-
+import java.util.List;
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
@@ -13,10 +18,15 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TabHost;
 import android.widget.TabWidget;
+import android.widget.Toast;
 
 import com.devapp.R;
 import com.devapp.activity.base.BaseActivity;
-import com.google.inject.Inject;
+import com.devapp.download.DownloadManager;
+import com.devapp.download.DownloadTask;
+import com.devapp.download.DownloadTaskListener;
+import com.devapp.download.DownloadTaskListenerAdapter;
+import com.devapp.utils.Utils;
 
 /**
  * Tab导航模式的基本框架
@@ -24,7 +34,6 @@ import com.google.inject.Inject;
  *
  */
 public class MainTabActivity extends BaseActivity {
-
 
 	public MTabHost mTabHost;
 	
@@ -34,8 +43,20 @@ public class MainTabActivity extends BaseActivity {
 	
 	private TabManager mTabManager;
 	
-	@Inject
 	private LayoutInflater inflater;
+	
+	private List<DownloadTask> downloadTasks = new ArrayList<DownloadTask>();
+	private DownloadTaskListener mDownloadTaskListener = new DownloadTaskListenerAdapter() {
+		@Override
+		public void finishDownload(DownloadTask downloadTask) {
+			Toast.makeText(MainTabActivity.this, "插件下载成功", Toast.LENGTH_LONG).show();
+		}
+		
+		@Override
+		public void errorDownload(int error) {
+			
+		}
+	};
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +64,43 @@ public class MainTabActivity extends BaseActivity {
 		setContentView(R.layout.activity_main_tab);
 		inflater = LayoutInflater.from(this);
 		initTab();
+		downloadTasks = new ArrayList<DownloadTask>();
+		
+		for(int i = 0;i < Utils.url.length;i++ ){
+			startDownload(i);
+		}
+	}
+	
+	public synchronized void startDownload(int viewPos) {
+	   String pluginFolder = Utils.APK_ROOT;
+        File pluginFile = new File(pluginFolder);
+        if(!pluginFile.exists()){
+        	pluginFile.mkdirs();
+        }
+       /* File[] plugins = pluginFile.listFiles();
+        if (plugins != null && plugins.length > 0) {
+            return;
+        }*/
+		
+		if (!Utils.isSDCardPresent()) {
+			Toast.makeText(this, "未发现SD卡", Toast.LENGTH_LONG).show();
+			return;
+		}
+
+		if (!Utils.isSdCardWrittenable()) {
+			Toast.makeText(this, "SD卡不能读写", Toast.LENGTH_LONG).show();
+			return;
+		}
+
+		File file = new File(Utils.APK_ROOT + Utils.getFileNameFromUrl(Utils.url[viewPos]));
+		if (file.exists())
+			file.delete();
+		try {
+			downloadTasks.add(viewPos, new DownloadTask(this,Utils.url[viewPos], Utils.APK_ROOT, mDownloadTaskListener));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		downloadTasks.get(viewPos).execute();
 	}
 
 	private void initTab() {

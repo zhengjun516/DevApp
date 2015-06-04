@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.activeandroid.ActiveAndroid;
+import com.devapp.plugin.PluginManager;
 
 public class ClientApplication extends Application implements UncaughtExceptionHandler {
 
@@ -37,6 +38,7 @@ public class ClientApplication extends Application implements UncaughtExceptionH
 		
 		//初始化ActiveAndroid数据库框架
 		ActiveAndroid.initialize(this);
+		PluginManager.init(this);
 		
 	}
 	

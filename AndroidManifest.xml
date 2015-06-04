@@ -11,6 +11,10 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    
     <instrumentation android:name="android.test.InstrumentationTestRunner"
         android:targetPackage="com.jieban" />
     
@@ -28,10 +32,6 @@
             android:name="com.devapp.activity.common.LaunchActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|locale"
             android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter> 
         </activity>
         
         <activity
@@ -62,6 +62,10 @@
             android:name="com.devapp.activity.bottomtab.MainTabActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|locale"
             android:label="@string/app_name" >
+             <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter> 
         </activity>
         
         
@@ -71,6 +75,30 @@
             android:label="@string/app_name" >
         </activity>
         
+        <!-- 框架 -->
+        <activity
+            android:name="com.ryg.dynamicload.DLProxyActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.ryg.dynamicload.proxy.activity.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.ryg.dynamicload.DLProxyFragmentActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.ryg.dynamicload.proxy.fragmentactivity.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <service android:name="com.ryg.dynamicload.DLProxyService" >
+            <intent-filter >
+                <action android:name="com.ryg.dynamicload.proxy.service.action"/>
+            </intent-filter> 
+        </service>
         
         <receiver android:name="com.devapp.broadcast.DevAppBroadcastReceiver">
             <intent-filter>

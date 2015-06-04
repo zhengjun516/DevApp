@@ -22,7 +22,7 @@ public class ServiceFactory {
 	/**
 	 * 通过id形式获取服务，与通过名字获取服务效果一样，根据个人喜好使用
 	 * @param id
-	 * @param context
+	 * @param mContext
 	 * @return
 	 */
 	public static BaseService getService(int id){
