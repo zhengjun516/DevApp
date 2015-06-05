@@ -19,7 +19,7 @@ import android.widget.TextView;
 import com.devapp.R;
 import com.devapp.activity.base.BaseFragment;
 import com.devapp.plugin.PluginAdapter;
-import com.devapp.plugin.PluginItem;
+import com.devapp.plugin.Plugin;
 import com.devapp.plugin.PluginManager;
 import com.devapp.utils.Utils;
 import com.ryg.dynamicload.internal.DLIntent;
@@ -35,7 +35,7 @@ import com.ryg.utils.DLUtils;
  */
 public class Tab2Fragment extends BaseFragment implements OnItemClickListener {
 	
-	private ArrayList<PluginItem> mPluginItems = new ArrayList<PluginItem>();
+	private ArrayList<Plugin> mPluginItems = new ArrayList<Plugin>();
 	private PluginAdapter mPluginAdapter;
 
 	private ListView mListView;
@@ -80,7 +80,7 @@ public class Tab2Fragment extends BaseFragment implements OnItemClickListener {
 	
 	private void initData() {
 		pluginManager = PluginManager.getInstance();
-		List<PluginItem> pluginItems = pluginManager.getPlugins();
+		List<Plugin> pluginItems = pluginManager.getPlugins();
 		
 		mPluginItems.addAll(pluginItems);
 		
@@ -92,7 +92,7 @@ public class Tab2Fragment extends BaseFragment implements OnItemClickListener {
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
-		    PluginItem item = mPluginItems.get(position);
+		    Plugin item = mPluginItems.get(position);
 	        DLPluginManager pluginManager = DLPluginManager.getInstance(mParentActivity);
 	        pluginManager.startPluginActivity(mParentActivity, new DLIntent(item.packageInfo.packageName, item.launcherActivityName));
 	        

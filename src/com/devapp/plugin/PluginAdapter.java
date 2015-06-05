@@ -15,14 +15,14 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class PluginAdapter extends MBaseAdapter<PluginItem> {
+public class PluginAdapter extends MBaseAdapter<Plugin> {
 
 	
 	public PluginAdapter(Activity context) {
 		super(context, null);
 	}
 	
-	public PluginAdapter(Activity context, List<PluginItem> datas) {
+	public PluginAdapter(Activity context, List<Plugin> datas) {
 		super(context, datas);
 	}
 
@@ -40,7 +40,7 @@ public class PluginAdapter extends MBaseAdapter<PluginItem> {
          } else {
              holder = (ViewHolder) convertView.getTag();
          }
-         PluginItem item = (PluginItem) getItem(position);
+         Plugin item = (Plugin) getItem(position);
          PackageInfo packageInfo = item.packageInfo;
          holder.appIcon.setImageDrawable(DLUtils.getAppIcon(mContext, item.pluginPath));
          holder.appName.setText(DLUtils.getAppLabel(mContext, item.pluginPath));

@@ -77,6 +77,14 @@ public class ClassServiceImpl extends BaseServiceImpl implements ClassService{
 		category11.id = 11;
 		category11.name = "Android 第三方集成";
 		
+		Chapter category12 = new Chapter();
+		category12.id = 12;
+		category12.name = "设计模式";
+		
+		Chapter category13 = new Chapter();
+		category13.id = 13;
+		category13.name = "算法";
+		
 		
 		chapters.add(category);
 		chapters.add(category2);
@@ -89,6 +97,8 @@ public class ClassServiceImpl extends BaseServiceImpl implements ClassService{
 		chapters.add(category9);
 		chapters.add(category10);
 		chapters.add(category11);
+		chapters.add(category12);
+		chapters.add(category13);
 	}
 	
 	public void initSections(){

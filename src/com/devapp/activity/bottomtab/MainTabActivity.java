@@ -45,62 +45,12 @@ public class MainTabActivity extends BaseActivity {
 	
 	private LayoutInflater inflater;
 	
-	private List<DownloadTask> downloadTasks = new ArrayList<DownloadTask>();
-	private DownloadTaskListener mDownloadTaskListener = new DownloadTaskListenerAdapter() {
-		@Override
-		public void finishDownload(DownloadTask downloadTask) {
-			Toast.makeText(MainTabActivity.this, "插件下载成功", Toast.LENGTH_LONG).show();
-		}
-		
-		@Override
-		public void errorDownload(int error) {
-			
-		}
-	};
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_tab);
 		inflater = LayoutInflater.from(this);
 		initTab();
-		downloadTasks = new ArrayList<DownloadTask>();
-		
-		for(int i = 0;i < Utils.url.length;i++ ){
-			startDownload(i);
-		}
-	}
-	
-	public synchronized void startDownload(int viewPos) {
-	   String pluginFolder = Utils.APK_ROOT;
-        File pluginFile = new File(pluginFolder);
-        if(!pluginFile.exists()){
-        	pluginFile.mkdirs();
-        }
-       /* File[] plugins = pluginFile.listFiles();
-        if (plugins != null && plugins.length > 0) {
-            return;
-        }*/
-		
-		if (!Utils.isSDCardPresent()) {
-			Toast.makeText(this, "未发现SD卡", Toast.LENGTH_LONG).show();
-			return;
-		}
-
-		if (!Utils.isSdCardWrittenable()) {
-			Toast.makeText(this, "SD卡不能读写", Toast.LENGTH_LONG).show();
-			return;
-		}
-
-		File file = new File(Utils.APK_ROOT + Utils.getFileNameFromUrl(Utils.url[viewPos]));
-		if (file.exists())
-			file.delete();
-		try {
-			downloadTasks.add(viewPos, new DownloadTask(this,Utils.url[viewPos], Utils.APK_ROOT, mDownloadTaskListener));
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		downloadTasks.get(viewPos).execute();
 	}
 
 	private void initTab() {
