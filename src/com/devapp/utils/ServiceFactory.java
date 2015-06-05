@@ -47,10 +47,6 @@ public class ServiceFactory {
 		return (UserService) new UserServiceImpl(context);
 	}
 	
-	public static BookService getBookService(Context context){
-		return new BookServiceImpl(context);
-	}
-	
 	public static MessageService getMessageService(Context context){
 		return new MessageServiceImpl(context);
 	}
