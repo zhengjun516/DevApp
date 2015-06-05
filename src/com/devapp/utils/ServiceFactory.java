@@ -3,11 +3,9 @@ package com.devapp.utils;
 import android.content.Context;
 
 import com.devapp.service.BaseService;
-import com.devapp.service.BookService;
 import com.devapp.service.MessageService;
 import com.devapp.service.UserService;
 import com.devapp.service.impl.ArticleServiceImpl;
-import com.devapp.service.impl.BookServiceImpl;
 import com.devapp.service.impl.ClassServiceImpl;
 import com.devapp.service.impl.MessageServiceImpl;
 import com.devapp.service.impl.UserServiceImpl;
