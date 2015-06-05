@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
+    
     <include layout="@layout/titlebar"/>
    <LinearLayout
     android:layout_width="match_parent"
@@ -19,15 +20,24 @@
         android:text="@string/no_plugin"
         android:visibility="gone" />
 
-    <ListView
+   <!--  <ListView
         android:id="@+id/plugin_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#fff4f7f9"
+        
         android:cacheColorHint="#00000000"
         android:divider="#dddbdb"
         android:dividerHeight="1.0px"
-        android:scrollbars="none" />
+        android:scrollbars="none" /> -->
+        <GridView 
+            android:id="@+id/mPluginList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:numColumns="4"
+            android:background="#fff4f7f9"
+            android:horizontalSpacing="1.0px"
+            android:verticalSpacing="1.0px"
+            ></GridView>
 
 </LinearLayout>
 </LinearLayout>

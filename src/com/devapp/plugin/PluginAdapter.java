@@ -34,8 +34,8 @@ public class PluginAdapter extends MBaseAdapter<Plugin> {
              holder = new ViewHolder();
              holder.appIcon = (ImageView) convertView.findViewById(R.id.app_icon);
              holder.appName = (TextView) convertView.findViewById(R.id.app_name);
-             holder.apkName = (TextView) convertView.findViewById(R.id.apk_name);
-             holder.packageName = (TextView) convertView.findViewById(R.id.package_name);
+             /*holder.apkName = (TextView) convertView.findViewById(R.id.apk_name);
+             holder.packageName = (TextView) convertView.findViewById(R.id.package_name);*/
              convertView.setTag(holder);
          } else {
              holder = (ViewHolder) convertView.getTag();
@@ -44,10 +44,10 @@ public class PluginAdapter extends MBaseAdapter<Plugin> {
          PackageInfo packageInfo = item.packageInfo;
          holder.appIcon.setImageDrawable(DLUtils.getAppIcon(mContext, item.pluginPath));
          holder.appName.setText(DLUtils.getAppLabel(mContext, item.pluginPath));
-         holder.apkName.setText(item.pluginPath.substring(item.pluginPath.lastIndexOf(File.separatorChar) + 1));
+        /* holder.apkName.setText(item.pluginPath.substring(item.pluginPath.lastIndexOf(File.separatorChar) + 1));
          holder.packageName.setText(packageInfo.applicationInfo.packageName + "\n" + 
                                     item.launcherActivityName + "\n" + 
-                                    item.launcherServiceName);
+                                    item.launcherServiceName);*/
          return convertView;
 	}
 	

@@ -1,47 +1,36 @@
 package com.devapp.activity.bottomtab;
 
-import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
-import android.content.pm.PackageInfo;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.devapp.R;
+import com.devapp.activity.base.BaseActivity;
 import com.devapp.activity.base.BaseFragment;
-import com.devapp.plugin.PluginAdapter;
-import com.devapp.plugin.Plugin;
-import com.devapp.plugin.PluginManager;
-import com.devapp.utils.Utils;
-import com.ryg.dynamicload.internal.DLIntent;
-import com.ryg.dynamicload.internal.DLPluginManager;
-import com.ryg.utils.DLUtils;
-
-
+import com.devapp.activity.course.ClassActivity;
+import com.devapp.adapter.ChapterAdapter;
+import com.devapp.domain.Chapter;
+import com.devapp.domain.IntentParam;
+import com.devapp.service.ClassService;
+import com.devapp.utils.ActivityUtils;
+import com.devapp.utils.ServiceFactory;
 
 /**
  * 一起
  * @author zhengjun1
  *
  */
-public class Tab2Fragment extends BaseFragment implements OnItemClickListener {
-	
-	private ArrayList<Plugin> mPluginItems = new ArrayList<Plugin>();
-	private PluginAdapter mPluginAdapter;
-
-	private ListView mListView;
-	private TextView mNoPluginTextView;
-	
-	private PluginManager pluginManager;
+public class Tab2Fragment extends BaseFragment{
+	private ListView mItemList;
+	private ClassService categoryService;
+	private ChapterAdapter itemsAdapter;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -51,55 +40,58 @@ public class Tab2Fragment extends BaseFragment implements OnItemClickListener {
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
+		View root = getView();
+		mItemList = (ListView) root.findViewById(R.id.mItemList);
 	}
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		initView();
-		initData();
+		categoryService = (ClassService) ServiceFactory.getService(ServiceFactory.CLASS_SERVICE);
+		List<Chapter> categories = categoryService.getChapters();
+		itemsAdapter = new ChapterAdapter(mParentActivity, categories);
+		mItemList.setAdapter(itemsAdapter);
+		mItemList.setOnItemClickListener(new OnMyItemClickListenr(mParentActivity));
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		return inflater.inflate(R.layout.fragment_together, null);
+		return inflater.inflate(R.layout.fragment_chapter, null);
 	}
 
 	@Override
 	public void onResume() {
 		super.onResume();
-	}
-	
-	
-	 private void initView() {
-		 mPluginAdapter = new PluginAdapter(mParentActivity,mPluginItems);
-		 mListView = (ListView) getView().findViewById(R.id.plugin_list);
-		 mNoPluginTextView = (TextView)getView().findViewById(R.id.no_plugin);
-	 }
-	
-	private void initData() {
-		pluginManager = PluginManager.getInstance();
-		List<Plugin> pluginItems = pluginManager.getPlugins();
 		
-		mPluginItems.addAll(pluginItems);
+	}
+	
+	class OnMyClickListener  implements OnClickListener{
+
+		@Override
+		public void onClick(View v) {
+			switch(v.getId()){
+			  case R.id.mRightBtn:
+				break;
+			}
+		}
+	}
+	
+	
+	class OnMyItemClickListenr implements OnItemClickListener{
+		private BaseActivity activity;
 		
-		mListView.setAdapter(mPluginAdapter);
-		mListView.setOnItemClickListener(this);
-		mPluginAdapter.notifyDataSetChanged();
-	}
+		public OnMyItemClickListenr(BaseActivity activity) {
+			this.activity = activity;
+		}
 
-	@Override
-	public void onItemClick(AdapterView<?> parent, View view, int position,
-			long id) {
-		    Plugin item = mPluginItems.get(position);
-	        DLPluginManager pluginManager = DLPluginManager.getInstance(mParentActivity);
-	        pluginManager.startPluginActivity(mParentActivity, new DLIntent(item.packageInfo.packageName, item.launcherActivityName));
-	        
-	        //如果存在Service则调用起Service
-	        if (item.launcherServiceName != null) { 
-		        DLIntent intent = new DLIntent(item.packageInfo.packageName, item.launcherServiceName);
-	        }
+		@Override
+		public void onItemClick(AdapterView<?> parent, View view, int position,long id) {
+		    Chapter chapter = (Chapter) parent.getItemAtPosition(position);
+			IntentParam intentParams = new IntentParam();
+			intentParams.put("chapter", chapter);
+			ActivityUtils.startActivity(activity, ClassActivity.class, intentParams);
+		}
 	}
-
+	
 }

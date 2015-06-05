@@ -128,10 +128,6 @@ public class PluginManager {
 	        if(!pluginFile.exists()){
 	        	pluginFile.mkdirs();
 	        }
-	       /* File[] plugins = pluginFile.listFiles();
-	        if (plugins != null && plugins.length > 0) {
-	            return;
-	        }*/
 			
 			if (!Utils.isSDCardPresent()) {
 				Toast.makeText(mContext, "未发现SD卡", Toast.LENGTH_LONG).show();
