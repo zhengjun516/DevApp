@@ -30,8 +30,6 @@ public class ServiceFactory {
 		  case MESSAGE_SERVICE:
 		  case ARTICLE_SERVICE:
 			 return new ArticleServiceImpl();
-		  case CLASS_SERVICE:
-			 return new ClassServiceImpl();
 		  default:return null;
 		}
 	}

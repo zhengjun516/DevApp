@@ -14,12 +14,10 @@ import android.widget.ListView;
 import com.devapp.R;
 import com.devapp.activity.base.BaseActivity;
 import com.devapp.activity.base.BaseFragment;
-import com.devapp.activity.course.ClassActivity;
 import com.devapp.adapter.ChapterAdapter;
 import com.devapp.domain.Chapter;
 import com.devapp.domain.IntentParam;
 import com.devapp.service.ClassService;
-import com.devapp.utils.ActivityUtils;
 import com.devapp.utils.ServiceFactory;
 
 /**
@@ -90,7 +88,6 @@ public class Tab2Fragment extends BaseFragment{
 		    Chapter chapter = (Chapter) parent.getItemAtPosition(position);
 			IntentParam intentParams = new IntentParam();
 			intentParams.put("chapter", chapter);
-			ActivityUtils.startActivity(activity, ClassActivity.class, intentParams);
 		}
 	}
 	

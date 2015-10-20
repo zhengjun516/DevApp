@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.devapp.R;
 import com.devapp.adapter.base.MBaseAdapter;
-import com.ryg.utils.DLUtils;
 
 import android.app.Activity;
 import android.content.pm.PackageInfo;
@@ -42,8 +41,8 @@ public class PluginAdapter extends MBaseAdapter<Plugin> {
          }
          Plugin item = (Plugin) getItem(position);
          PackageInfo packageInfo = item.packageInfo;
-         holder.appIcon.setImageDrawable(DLUtils.getAppIcon(mContext, item.pluginPath));
-         holder.appName.setText(DLUtils.getAppLabel(mContext, item.pluginPath));
+        /* holder.appIcon.setImageDrawable(DLUtils.getAppIcon(mContext, item.pluginPath));
+         holder.appName.setText(DLUtils.getAppLabel(mContext, item.pluginPath));*/
         /* holder.apkName.setText(item.pluginPath.substring(item.pluginPath.lastIndexOf(File.separatorChar) + 1));
          holder.packageName.setText(packageInfo.applicationInfo.packageName + "\n" + 
                                     item.launcherActivityName + "\n" + 

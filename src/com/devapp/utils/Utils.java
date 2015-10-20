@@ -28,7 +28,7 @@ public class Utils {
 	    };
 	
 	public static String APK_ROOT = Environment.getExternalStorageDirectory()+"/devapp/plugins/";
-	public static String APK_TEMP = Environment.getExternalStorageDirectory()+"/devapp/plugins/";
+	public static String APK_TEMP = Environment.getExternalStorageDirectory()+"/devapp/plugins/temp";
 	
 	public static int[] progress = {0,0,0};
 	

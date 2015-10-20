@@ -18,9 +18,9 @@ import com.devapp.activity.base.BaseFragment;
 import com.devapp.plugin.Plugin;
 import com.devapp.plugin.PluginAdapter;
 import com.devapp.plugin.PluginManager;
-import com.ryg.dynamicload.internal.DLIntent;
+/*import com.ryg.dynamicload.internal.DLIntent;
 import com.ryg.dynamicload.internal.DLPluginManager;
-
+*/
 
 
 /**
@@ -89,13 +89,13 @@ public class Tab1Fragment extends BaseFragment implements OnItemClickListener {
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
 		    Plugin item = mPluginItems.get(position);
-	        DLPluginManager pluginManager = DLPluginManager.getInstance(mParentActivity);
+	        /*DLPluginManager pluginManager = DLPluginManager.getInstance(mParentActivity);
 	        pluginManager.startPluginActivity(mParentActivity, new DLIntent(item.packageInfo.packageName, item.launcherActivityName));
 	        
 	        //如果存在Service则调用起Service
 	        if (item.launcherServiceName != null) { 
 		        DLIntent intent = new DLIntent(item.packageInfo.packageName, item.launcherServiceName);
-	        }
+	        }*/
 	}
 
 }

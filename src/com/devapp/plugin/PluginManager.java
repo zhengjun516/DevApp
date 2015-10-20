@@ -13,8 +13,8 @@ import com.devapp.download.DownloadTask;
 import com.devapp.download.DownloadTaskListener;
 import com.devapp.download.DownloadTaskListenerAdapter;
 import com.devapp.utils.Utils;
-import com.ryg.dynamicload.internal.DLPluginManager;
-import com.ryg.utils.DLUtils;
+/*import com.ryg.dynamicload.internal.DLPluginManager;
+import com.ryg.utils.DLUtils;*/
 
 public class PluginManager {
 	
@@ -106,7 +106,7 @@ public class PluginManager {
 		
 		plugins = new ArrayList<Plugin>();
 		
-		for (File plugin : pluginFiles) {
+		/*for (File plugin : pluginFiles) {
             Plugin item = new Plugin();
             item.pluginPath = plugin.getAbsolutePath();
             item.packageInfo = DLUtils.getPackageInfo(mContext, item.pluginPath);
@@ -118,7 +118,7 @@ public class PluginManager {
             }
             plugins.add(item);
             DLPluginManager.getInstance(mContext).loadApk(item.pluginPath);
-        }
+        }*/
 		return plugins;
 	}
 

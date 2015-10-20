@@ -29,7 +29,7 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService {
 			return;
 		}
 
-		String url = API.HOST_CURRENT+"v1/user/login.do";
+		String url = API.hostCurrent+"v1/user/login.do";
 		Uri.Builder builder = Uri.parse(url).buildUpon();
 
 		Map<String, String> params = new HashMap<String, String>();

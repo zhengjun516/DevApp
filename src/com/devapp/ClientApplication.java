@@ -39,6 +39,8 @@ public class ClientApplication extends Application implements UncaughtExceptionH
 		//初始化ActiveAndroid数据库框架
 		ActiveAndroid.initialize(this);
 		PluginManager.init(this);
+		//初始化app配置项
+		DevAppConfig.init(this);
 		
 	}
 	
@@ -87,11 +89,11 @@ public class ClientApplication extends Application implements UncaughtExceptionH
 	/**
 	 * 使用一个静态的Toast主要是解决一个页面会多次闪现新的Toast的问题
 	 */
-	public static Toast toast = null;
+	/*public static Toast toast = null;
 	private static View toastView = null;
-	private static TextView textView = null;
+	private static TextView textView = null;*/
 	
-	public static void toast(final Context context, final String notice, final int duration) {
+	/*public static void toast(final Context context, final String notice, final int duration) {
 		if (context == null || TextUtils.isEmpty(notice)) {
 			return;
 		}
@@ -117,7 +119,7 @@ public class ClientApplication extends Application implements UncaughtExceptionH
 			toast.setDuration(duration);
 			toast.show();
 		}
-	}
+	}*/
 
 	@Override
 	public void onLowMemory() {
