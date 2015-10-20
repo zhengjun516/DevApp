@@ -110,26 +110,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
-        
-         <service android:name=".DevAppService">  
-            <intent-filter>  
-                 <action android:name="android.intent.action.DEVAPP_SERVICE" />  
-                 <category android:name="android.intent.category.DEFAULT" />  
-            </intent-filter>  
-        </service>  
-        
-         
-         <service
-            android:name="com.devapp.aidl.server.RemoteServer"
-            android:process=":remote" >
-            <intent-filter >
-                <action android:name="com.teffy.aidldemo.aidl.IRemoteServer"/>
-            </intent-filter>
-        </service>
-
-         <provider android:name="com.devapp.contentprovider.DevAppContentProvider"
-             android:authorities="com.devapp.provider" >
-         </provider>
          
 <!-- 左侧活动导航栏模式 -->
         <!-- <activity

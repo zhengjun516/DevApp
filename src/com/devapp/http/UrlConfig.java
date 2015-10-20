@@ -1,6 +1,6 @@
 package com.devapp.http;
 
-public class API {
+public class UrlConfig {
 	
 	public static final String HTTP = "http://";
 	public static final String HTTPS = "https//";

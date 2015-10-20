@@ -4,6 +4,7 @@ package com.devapp;
 import java.io.IOException;
 import java.util.List;
 
+import com.devapp.http.UrlConfig;
 import com.devapp.utils.StreamUtil;
 
 import android.app.Application;
@@ -101,14 +102,16 @@ public class DevAppConfig {
 				if(kv[0].equalsIgnoreCase("appstate")){
 					if(kv[1].equalsIgnoreCase(DevAppConfig.APP_TEST)){
 						DevAppConfig.appState = DevAppConfig.APP_TEST;
-						/*UrlConfig.baseApi = UrlConfig.BASE_API_TEST;
-						JZUrlConfig.httpUrl =JZUrlConfig.HTTP+JZUrlConfig.HOST_TEST;*/
+						UrlConfig.host = UrlConfig.HOST_TEST;
+						/*JZUrlConfig.httpUrl =JZUrlConfig.HTTP+JZUrlConfig.HOST_TEST;*/
 					}else if(kv[1].equalsIgnoreCase(DevAppConfig.APP_WEB6)){
 						DevAppConfig.appState = DevAppConfig.APP_WEB6;
+						UrlConfig.host = UrlConfig.HOST_ONLINE;
 						/*UrlConfig.baseApi = UrlConfig.BASE_API_WEB6;
 						JZUrlConfig.httpUrl = JZUrlConfig.HTTP+JZUrlConfig.HOST_WEB6;*/
 					}else{
 						DevAppConfig.appState = DevAppConfig.APP_ONLINE;
+						UrlConfig.host = UrlConfig.HOST_ONLINE;
 						/*UrlConfig.baseApi = UrlConfig.BASE_API_ONLINE;
 						JZUrlConfig.httpUrl = JZUrlConfig.HTTP+JZUrlConfig.HOST_ONLINE;*/
 					}

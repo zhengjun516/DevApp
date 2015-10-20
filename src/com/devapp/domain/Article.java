@@ -1,5 +1,5 @@
 package com.devapp.domain;
 
-public class Book{
+public class Article{
 
 }

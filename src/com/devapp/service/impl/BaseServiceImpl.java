@@ -8,6 +8,7 @@ import android.content.Context;
 import android.os.Handler;
 
 import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
 import com.android.volley.Request.Priority;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response.ErrorListener;
@@ -35,6 +36,10 @@ public class BaseServiceImpl implements BaseService{
 
 	public BaseServiceImpl(Context context) {
 		
+	}
+	
+	protected void requestByGet(String url, Map<String, String> params, Listener<String> listener, ErrorListener errorListener){
+		request(Request.Method.GET, url, params, listener, errorListener);
 	}
 	
 	protected void request(int method, String url, JSONObject jsonRequest, Listener<JSONObject> listener, ErrorListener errorListener){
