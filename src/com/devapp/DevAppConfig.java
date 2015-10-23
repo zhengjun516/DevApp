@@ -29,7 +29,7 @@ public class DevAppConfig {
 	public static final String APP_TEST = "test";
 	public static final String APP_WEB6 = "web6";
 	
-	public static final String APP_CONFIG_FILE = "agency.txt";
+	public static final String APP_CONFIG_FILE = "devapp.txt";
 
 	public static String packageName = "com.ganji.jianzhi";
 

@@ -30,14 +30,14 @@ import com.ryg.dynamicload.internal.DLPluginManager;
 	
 public class Tab1Fragment extends BaseFragment implements OnItemClickListener {
 
-	private ArrayList<Plugin> mPluginItems = new ArrayList<Plugin>();
-	private PluginAdapter mPluginAdapter;
+	/*private ArrayList<Plugin> mPluginItems = new ArrayList<Plugin>();
+	private PluginAdapter mPluginAdapter;*/
 
 	//private ListView mListView;
 	private GridView mPluginList;
 	private TextView mNoPluginTextView;
 	
-	private PluginManager pluginManager;
+	/*private PluginManager pluginManager;*/
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -69,26 +69,26 @@ public class Tab1Fragment extends BaseFragment implements OnItemClickListener {
 	
 	
 	 private void initView() {
-		 mPluginAdapter = new PluginAdapter(mParentActivity,mPluginItems);
-		 mPluginList = (GridView) getView().findViewById(R.id.mPluginList);
+		/* mPluginAdapter = new PluginAdapter(mParentActivity,mPluginItems);
+		 mPluginList = (GridView) getView().findViewById(R.id.mPluginList);*/
 		 mNoPluginTextView = (TextView)getView().findViewById(R.id.no_plugin);
 	 }
 	
 	private void initData() {
-		pluginManager = PluginManager.getInstance();
+		/*pluginManager = PluginManager.getInstance();
 		List<Plugin> pluginItems = pluginManager.getPlugins();
 		
 		mPluginItems.addAll(pluginItems);
 		
 		mPluginList.setAdapter(mPluginAdapter);
 		mPluginList.setOnItemClickListener(this);
-		mPluginAdapter.notifyDataSetChanged();
+		mPluginAdapter.notifyDataSetChanged();*/
 	}
 
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
-		    Plugin item = mPluginItems.get(position);
+		   /* Plugin item = mPluginItems.get(position);*/
 	        /*DLPluginManager pluginManager = DLPluginManager.getInstance(mParentActivity);
 	        pluginManager.startPluginActivity(mParentActivity, new DLIntent(item.packageInfo.packageName, item.launcherActivityName));
 	        

@@ -45,11 +45,11 @@ public class Tab2Fragment extends BaseFragment{
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		categoryService = (ClassService) ServiceFactory.getService(ServiceFactory.CLASS_SERVICE);
+	/*	categoryService = (ClassService) ServiceFactory.getService(ServiceFactory.CLASS_SERVICE);
 		List<Chapter> categories = categoryService.getChapters();
 		itemsAdapter = new ChapterAdapter(mParentActivity, categories);
 		mItemList.setAdapter(itemsAdapter);
-		mItemList.setOnItemClickListener(new OnMyItemClickListenr(mParentActivity));
+		mItemList.setOnItemClickListener(new OnMyItemClickListenr(mParentActivity));*/
 	}
 
 	@Override
