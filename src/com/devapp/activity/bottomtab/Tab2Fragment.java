@@ -17,8 +17,8 @@ import com.devapp.activity.base.BaseFragment;
 import com.devapp.adapter.ChapterAdapter;
 import com.devapp.domain.Chapter;
 import com.devapp.domain.IntentParam;
-import com.devapp.service.ClassService;
-import com.devapp.utils.ServiceFactory;
+import com.devapp.manager.ClassManager;
+import com.devapp.utils.ManagerFactory;
 
 /**
  * 一起
@@ -27,7 +27,7 @@ import com.devapp.utils.ServiceFactory;
  */
 public class Tab2Fragment extends BaseFragment{
 	private ListView mItemList;
-	private ClassService categoryService;
+	private ClassManager categoryService;
 	private ChapterAdapter itemsAdapter;
 	
 	@Override

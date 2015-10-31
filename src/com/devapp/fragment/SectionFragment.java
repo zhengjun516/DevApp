@@ -15,9 +15,9 @@ import com.devapp.adapter.SectionAdapter;
 import com.devapp.domain.Chapter;
 import com.devapp.domain.IntentParam;
 import com.devapp.domain.Section;
-import com.devapp.service.ClassService;
+import com.devapp.manager.ClassManager;
 import com.devapp.utils.IntentParamManager;
-import com.devapp.utils.ServiceFactory;
+import com.devapp.utils.ManagerFactory;
 
 public class SectionFragment extends BaseFragment {
 	
@@ -25,7 +25,7 @@ public class SectionFragment extends BaseFragment {
 	private SectionAdapter sectionAdapter;
 	
 	private List<Section> sections;
-	private ClassService classService;
+	private ClassManager classService;
 	
 	private IntentParam intentParam;
 
@@ -51,7 +51,7 @@ public class SectionFragment extends BaseFragment {
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		classService = (ClassService) ServiceFactory.getService(ServiceFactory.CLASS_SERVICE);
+		classService = (ClassManager) ManagerFactory.getService(ManagerFactory.CLASS_SERVICE);
 		intentParam = IntentParamManager.get(IntentParam.KEY);
 		
 		Chapter chapter = (Chapter) intentParam.get("chapter");

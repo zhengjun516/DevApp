@@ -1,4 +1,4 @@
-package com.devapp.service;
+package com.devapp.manager;
 
 import java.util.List;
 import java.util.Map;
@@ -6,7 +6,7 @@ import java.util.Map;
 import com.devapp.domain.Post;
 import com.devapp.http.ResponseHandler;
 
-public interface MessageService{
+public interface MessageManager{
 
 	/**
 	 * 创建信息

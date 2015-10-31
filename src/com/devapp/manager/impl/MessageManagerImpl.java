@@ -1,4 +1,4 @@
-package com.devapp.service.impl;
+package com.devapp.manager.impl;
 
 import java.util.HashMap;
 import java.util.List;
@@ -7,11 +7,11 @@ import java.util.Map;
 import android.content.Context;
 import com.devapp.domain.Post;
 import com.devapp.http.ResponseHandler;
-import com.devapp.service.MessageService;
+import com.devapp.manager.MessageManager;
 
-public class MessageServiceImpl extends BaseServiceImpl implements MessageService{
+public class MessageManagerImpl extends BaseManagerImpl implements MessageManager{
 
-	public MessageServiceImpl(Context context) {
+	public MessageManagerImpl(Context context) {
 		super(context);
 	}
 	

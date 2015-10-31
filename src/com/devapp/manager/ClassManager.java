@@ -1,11 +1,11 @@
-package com.devapp.service;
+package com.devapp.manager;
 
 import java.util.List;
 
 import com.devapp.domain.Chapter;
 import com.devapp.domain.Section;
 
-public interface ClassService extends BaseService {
+public interface ClassManager extends BaseManager {
 	public List<Chapter> getChapters();
 	public List<Section> getSections(int chapterId);
 

@@ -12,9 +12,9 @@ import com.devapp.activity.base.BaseActivity;
 import com.devapp.domain.User;
 import com.devapp.http.ErrorInfo;
 import com.devapp.http.ResponseHandler;
-import com.devapp.service.UserService;
+import com.devapp.manager.UserManager;
 import com.devapp.utils.ActivityUtils;
-import com.devapp.utils.ServiceFactory;
+import com.devapp.utils.ManagerFactory;
 import com.devapp.utils.ViewUtils;
 
 public class LoginActivity extends BaseActivity implements OnClickListener {
@@ -27,7 +27,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 	
 	private Button mRegisterBtn;
 	
-	private UserService userService;
+	private UserManager userService;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		//通过id的方式获取服务
 		//userService = (IUserService) ServiceFactory.getService(IBaseService.USER_SERVICE, this);
 		
-		userService = ServiceFactory.getUserService(this);
+		userService = ManagerFactory.getUserService(this);
 	}
 
 	protected void initView() {

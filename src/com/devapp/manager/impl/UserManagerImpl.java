@@ -1,4 +1,4 @@
-package com.devapp.service.impl;
+package com.devapp.manager.impl;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,11 +15,11 @@ import com.devapp.domain.User;
 import com.devapp.http.UrlConfig;
 import com.devapp.http.ErrorInfo;
 import com.devapp.http.ResponseHandler;
-import com.devapp.service.UserService;
+import com.devapp.manager.UserManager;
 
-public class UserServiceImpl extends BaseServiceImpl implements UserService {
+public class UserManagerImpl extends BaseManagerImpl implements UserManager {
 	
-	public UserServiceImpl(Context context) {
+	public UserManagerImpl(Context context) {
 		super(context);
 	}
 

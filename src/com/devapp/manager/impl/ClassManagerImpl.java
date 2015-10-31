@@ -1,4 +1,4 @@
-package com.devapp.service.impl;
+package com.devapp.manager.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,15 +7,15 @@ import java.util.Map;
 
 import com.devapp.domain.Chapter;
 import com.devapp.domain.Section;
-import com.devapp.service.ClassService;
+import com.devapp.manager.ClassManager;
 
-public class ClassServiceImpl extends BaseServiceImpl implements ClassService{
+public class ClassManagerImpl extends BaseManagerImpl implements ClassManager{
 	
 	private List<Chapter> chapters = new ArrayList<Chapter>();
 	
 	private Map<Integer,List<Section>> sectionsMap = new HashMap<Integer, List<Section>>();
 	
-	public ClassServiceImpl() {
+	public ClassManagerImpl() {
 		initChapters();
 		initSections();
 	}

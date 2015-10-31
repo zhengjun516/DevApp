@@ -1,4 +1,4 @@
-package com.devapp.service.impl;
+package com.devapp.manager.impl;
 
 import java.util.Map;
 
@@ -16,9 +16,9 @@ import com.android.volley.Response.Listener;
 import com.android.volley.toolbox.Volley;
 import com.devapp.http.MyJsonRequest;
 import com.devapp.http.SimpleStringRequest;
-import com.devapp.service.BaseService;
+import com.devapp.manager.BaseManager;
 
-public class BaseServiceImpl implements BaseService{
+public class BaseManagerImpl implements BaseManager{
 	
 	protected String testHost = "";
 	protected static RequestQueue mVolleyQueue;
@@ -31,10 +31,10 @@ public class BaseServiceImpl implements BaseService{
 		}
 	}
 	
-	public BaseServiceImpl() {
+	public BaseManagerImpl() {
 	}
 
-	public BaseServiceImpl(Context context) {
+	public BaseManagerImpl(Context context) {
 		
 	}
 	

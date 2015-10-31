@@ -2,15 +2,15 @@ package com.devapp.utils;
 
 import android.content.Context;
 
-import com.devapp.service.BaseService;
-import com.devapp.service.MessageService;
-import com.devapp.service.UserService;
-import com.devapp.service.impl.ArticleServiceImpl;
-import com.devapp.service.impl.ClassServiceImpl;
-import com.devapp.service.impl.MessageServiceImpl;
-import com.devapp.service.impl.UserServiceImpl;
+import com.devapp.manager.BaseManager;
+import com.devapp.manager.MessageManager;
+import com.devapp.manager.UserManager;
+import com.devapp.manager.impl.ArticleManagerImpl;
+import com.devapp.manager.impl.ClassManagerImpl;
+import com.devapp.manager.impl.MessageManagerImpl;
+import com.devapp.manager.impl.UserManagerImpl;
 
-public class ServiceFactory {
+public class ManagerFactory {
 	public static final int USER_SERVICE = 1;
 	public static final int BOOK_SERVICE = 2;
 	public static final int MESSAGE_SERVICE = 3;
@@ -23,13 +23,13 @@ public class ServiceFactory {
 	 * @param mContext
 	 * @return
 	 */
-	public static BaseService getService(int id){
+	public static BaseManager getService(int id){
 		switch(id){
 		  case USER_SERVICE:
 		  case BOOK_SERVICE:
 		  case MESSAGE_SERVICE:
 		  case ARTICLE_SERVICE:
-			 return new ArticleServiceImpl();
+			 return new ArticleManagerImpl();
 		  default:return null;
 		}
 	}
@@ -39,11 +39,11 @@ public class ServiceFactory {
 	 * @param context
 	 * @return
 	 */
-	public static UserService getUserService(Context context){
-		return (UserService) new UserServiceImpl(context);
+	public static UserManager getUserService(Context context){
+		return (UserManager) new UserManagerImpl(context);
 	}
 	
-	public static MessageService getMessageService(Context context){
-		return new MessageServiceImpl(context);
+	public static MessageManager getMessageService(Context context){
+		return new MessageManagerImpl(context);
 	}
 }
