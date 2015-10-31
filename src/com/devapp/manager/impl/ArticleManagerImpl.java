@@ -14,25 +14,19 @@ import com.devapp.manager.ArticleManager;
 
 public class ArticleManagerImpl extends BaseManagerImpl implements ArticleManager{
 	
-	public ArticleManagerImpl() {
-		
-	}
-	
 	public void getArticles(final Listener<List<Article>> listener,final ErrorListener errorListener){
-		String url = UrlConfig.hostCurrent+"/articles";
+		String url = UrlConfig.baseUrl+"/articles";
 		Uri.Builder builder = Uri.parse(url).buildUpon();
 		
 		requestByGet(builder.toString(), null, new Listener<String>() {
-
 			@Override
 			public void onResponse(String response) {
 				
 			}
 		}, new ErrorListener() {
-
 			@Override
 			public void onErrorResponse(VolleyError error) {
-				
+				errorListener.onErrorResponse(error);
 			}
 		});
 	}

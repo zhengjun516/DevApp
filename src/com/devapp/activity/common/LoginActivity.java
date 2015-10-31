@@ -10,8 +10,6 @@ import android.widget.Toast;
 import com.devapp.R;
 import com.devapp.activity.base.BaseActivity;
 import com.devapp.domain.User;
-import com.devapp.http.ErrorInfo;
-import com.devapp.http.ResponseHandler;
 import com.devapp.manager.UserManager;
 import com.devapp.utils.ActivityUtils;
 import com.devapp.utils.ManagerFactory;
@@ -73,11 +71,11 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 
 	private void login(String phoneNumText, String passwordText) {
 		User user = new User(null,phoneNumText,passwordText);
-		 userService.login(user, new ResponseHandler<User, Exception>() {
+		/* userService.login(user, new ResponseHandler<User, Exception>() {
 			
 			@Override
-			public void onSuccess(int status, User user,ErrorInfo errorInfo) {
-				if(status == ErrorInfo.SUCCESS){
+			public void onSuccess(int status, User user,DevAppError errorInfo) {
+				if(status == DevAppError.SUCCESS){
 					//逻辑正确
 					Toast.makeText(LoginActivity.this,"登陆成功", Toast.LENGTH_SHORT).show();
 				}else{
@@ -91,6 +89,6 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 				  //处理请求异常
 				Toast.makeText(LoginActivity.this,e.toString(), Toast.LENGTH_SHORT).show();
 			}
-		});
+		});*/
 	}
 }

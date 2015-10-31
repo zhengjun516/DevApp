@@ -51,7 +51,7 @@ public class SectionFragment extends BaseFragment {
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		classService = (ClassManager) ManagerFactory.getService(ManagerFactory.CLASS_SERVICE);
+		classService = (ClassManager) ManagerFactory.getManager(ManagerFactory.CLASS_MANAGER);
 		intentParam = IntentParamManager.get(IntentParam.KEY);
 		
 		Chapter chapter = (Chapter) intentParam.get("chapter");

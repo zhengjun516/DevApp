@@ -12,8 +12,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.devapp.domain.User;
-import com.devapp.http.UrlConfig;
 import com.devapp.http.ErrorInfo;
+import com.devapp.http.UrlConfig;
 import com.devapp.http.ResponseHandler;
 import com.devapp.manager.UserManager;
 
@@ -29,7 +29,7 @@ public class UserManagerImpl extends BaseManagerImpl implements UserManager {
 			return;
 		}
 
-		String url = UrlConfig.hostCurrent+"v1/user/login.do";
+		String url = UrlConfig.baseUrl+"v1/user/login.do";
 		Uri.Builder builder = Uri.parse(url).buildUpon();
 
 		Map<String, String> params = new HashMap<String, String>();

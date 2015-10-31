@@ -1,6 +1,5 @@
 package com.devapp.activity.bottomtab;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import android.os.Bundle;
@@ -8,19 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.GridView;
-import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ListView;
 
+import com.android.volley.Response.ErrorListener;
+import com.android.volley.VolleyError;
+import com.android.volley.Response.Listener;
 import com.devapp.R;
 import com.devapp.activity.base.BaseFragment;
-import com.devapp.plugin.Plugin;
-import com.devapp.plugin.PluginAdapter;
-import com.devapp.plugin.PluginManager;
-/*import com.ryg.dynamicload.internal.DLIntent;
-import com.ryg.dynamicload.internal.DLPluginManager;
-*/
+import com.devapp.domain.Article;
+import com.devapp.manager.ArticleManager;
+import com.devapp.utils.ManagerFactory;
 
 
 /**
@@ -30,14 +26,8 @@ import com.ryg.dynamicload.internal.DLPluginManager;
 	
 public class Tab1Fragment extends BaseFragment implements OnItemClickListener {
 
-	/*private ArrayList<Plugin> mPluginItems = new ArrayList<Plugin>();
-	private PluginAdapter mPluginAdapter;*/
 
-	//private ListView mListView;
-	private GridView mPluginList;
-	private TextView mNoPluginTextView;
-	
-	/*private PluginManager pluginManager;*/
+	private ArticleManager mArticleManager;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -69,33 +59,31 @@ public class Tab1Fragment extends BaseFragment implements OnItemClickListener {
 	
 	
 	 private void initView() {
-		/* mPluginAdapter = new PluginAdapter(mParentActivity,mPluginItems);
-		 mPluginList = (GridView) getView().findViewById(R.id.mPluginList);*/
-		 mNoPluginTextView = (TextView)getView().findViewById(R.id.no_plugin);
+		
 	 }
 	
 	private void initData() {
-		/*pluginManager = PluginManager.getInstance();
-		List<Plugin> pluginItems = pluginManager.getPlugins();
-		
-		mPluginItems.addAll(pluginItems);
-		
-		mPluginList.setAdapter(mPluginAdapter);
-		mPluginList.setOnItemClickListener(this);
-		mPluginAdapter.notifyDataSetChanged();*/
+		mArticleManager = (ArticleManager) ManagerFactory.getManager(ManagerFactory.ARTICLE_MANAGER);
+
+		mArticleManager.getArticles(new Listener<List<Article>>() {
+
+			@Override
+			public void onResponse(List<Article> response) {
+				
+			}
+		}, new ErrorListener() {
+
+			@Override
+			public void onErrorResponse(VolleyError error) {
+				
+			}
+		});
 	}
 
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
-		   /* Plugin item = mPluginItems.get(position);*/
-	        /*DLPluginManager pluginManager = DLPluginManager.getInstance(mParentActivity);
-	        pluginManager.startPluginActivity(mParentActivity, new DLIntent(item.packageInfo.packageName, item.launcherActivityName));
-	        
-	        //如果存在Service则调用起Service
-	        if (item.launcherServiceName != null) { 
-		        DLIntent intent = new DLIntent(item.packageInfo.packageName, item.launcherServiceName);
-	        }*/
+		   
 	}
 
 }

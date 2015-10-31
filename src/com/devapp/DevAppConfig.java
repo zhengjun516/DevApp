@@ -103,17 +103,18 @@ public class DevAppConfig {
 					if(kv[1].equalsIgnoreCase(DevAppConfig.APP_TEST)){
 						DevAppConfig.appState = DevAppConfig.APP_TEST;
 						UrlConfig.host = UrlConfig.HOST_TEST;
+						UrlConfig.baseUrl = UrlConfig.scheme+UrlConfig.host;
 						/*JZUrlConfig.httpUrl =JZUrlConfig.HTTP+JZUrlConfig.HOST_TEST;*/
 					}else if(kv[1].equalsIgnoreCase(DevAppConfig.APP_WEB6)){
 						DevAppConfig.appState = DevAppConfig.APP_WEB6;
 						UrlConfig.host = UrlConfig.HOST_ONLINE;
+						UrlConfig.baseUrl = UrlConfig.scheme+UrlConfig.host;
 						/*UrlConfig.baseApi = UrlConfig.BASE_API_WEB6;
 						JZUrlConfig.httpUrl = JZUrlConfig.HTTP+JZUrlConfig.HOST_WEB6;*/
 					}else{
 						DevAppConfig.appState = DevAppConfig.APP_ONLINE;
 						UrlConfig.host = UrlConfig.HOST_ONLINE;
-						/*UrlConfig.baseApi = UrlConfig.BASE_API_ONLINE;
-						JZUrlConfig.httpUrl = JZUrlConfig.HTTP+JZUrlConfig.HOST_ONLINE;*/
+						UrlConfig.baseUrl = UrlConfig.scheme+UrlConfig.host;
 					}
 				}
 				//日志控制

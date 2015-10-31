@@ -14,24 +14,19 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
 import com.android.volley.toolbox.Volley;
+import com.devapp.DevAppConfig;
 import com.devapp.http.MyJsonRequest;
 import com.devapp.http.SimpleStringRequest;
 import com.devapp.manager.BaseManager;
 
 public class BaseManagerImpl implements BaseManager{
 	
-	protected String testHost = "";
 	protected static RequestQueue mVolleyQueue;
-	protected static Context mContext;
-	
-	public static void init(Context context){
-		mContext = context;
-		if(mVolleyQueue == null){
-			mVolleyQueue = Volley.newRequestQueue(mContext);
-		}
-	}
 	
 	public BaseManagerImpl() {
+		if(mVolleyQueue == null){
+			mVolleyQueue = Volley.newRequestQueue(DevAppConfig.appContext);
+		}
 	}
 
 	public BaseManagerImpl(Context context) {

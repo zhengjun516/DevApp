@@ -2,6 +2,6 @@
 apkChannel=""
 agencyid=agencydefaultid
 #online:线上环境；test:测试环境
-appstate=online
+appstate=test
 log=false
 

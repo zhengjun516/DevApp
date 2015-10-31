@@ -12,8 +12,6 @@ import android.widget.Toast;
 import com.devapp.R;
 import com.devapp.activity.base.BaseActivity;
 import com.devapp.domain.User;
-import com.devapp.http.ErrorInfo;
-import com.devapp.http.ResponseHandler;
 import com.devapp.manager.UserManager;
 import com.devapp.utils.ActivityUtils;
 import com.devapp.utils.MyObjectUtils;
@@ -77,12 +75,12 @@ public class RegisterActivity extends BaseActivity implements OnClickListener {
 	 * @param passwordText
 	 */
 	private void register(String phoneNumberText, String passwordText) {
-		User user = new User(null,phoneNumberText, passwordText,0);
+		/*User user = new User(null,phoneNumberText, passwordText,0);
 		   userService.register(user,new ResponseHandler<User, Exception>() {
 			
 			@Override
-			public void onSuccess(int status, User t, ErrorInfo errorInfo) {
-				if(status == ErrorInfo.SUCCESS){
+			public void onSuccess(int status, User t, DevAppError errorInfo) {
+				if(status == DevAppError.SUCCESS){
 					//逻辑正确
 				}else{
 					//处理错误
@@ -94,7 +92,7 @@ public class RegisterActivity extends BaseActivity implements OnClickListener {
 			public void onError(Exception e) {
 				 //处理请求异常
 			}
-		});
+		});*/
 	}
 	
 	@Override
